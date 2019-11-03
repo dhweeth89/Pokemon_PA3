@@ -9,6 +9,7 @@ GameObject::GameObject(char in_code)
 {
     display_code = in_code;
     id_num = 1;
+    location = Point2D();
     state = '0';
     cout << "GameObject constructed" << endl;
 }
@@ -17,8 +18,7 @@ GameObject::GameObject(Point2D in_loc, int in_id, char in_code)
 {
     display_code = in_code;
     id_num = in_id;
-    location.x = in_loc.x;
-    location.y = in_loc.y;
+    location = in_loc;
     state = '0';
 
     cout << "GameObject constructed" << endl;

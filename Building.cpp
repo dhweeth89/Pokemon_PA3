@@ -7,15 +7,15 @@ using namespace std;
 
 Building::Building() : GameObject('B')
 {
-    
+    pokemon_count = 0;
     cout << "Building default constructed" << endl;
 }
 
 Building::Building(char in_code, int in_Id, Point2D in_loc) : GameObject(in_loc, in_Id, in_code)
 {
+    pokemon_count = 0;
     id_num = in_Id;
-    location.x = in_loc.x;
-    location.y = in_loc.y;
+    location = in_loc;
     display_code = in_code; 
 }
 
