@@ -91,7 +91,7 @@ bool PokemonGym::Update()
 
 bool PokemonGym::IsBeaten()
 {
-    if (num_training_units_remaining == 0)
+    if (state == BEATEN)
     {
         return true;
     }

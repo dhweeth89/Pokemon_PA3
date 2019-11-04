@@ -217,9 +217,9 @@ int main()
     cout << "Cost at Center 2 to get 5 stamina points? " << Center2.GetDollarCost(5) << endl;
     cout << "Cost at Center 3 to get 5 stamina points? " << Center3.GetDollarCost(5) << endl;
     
-    cout << "Cost at Center 1 to get -3 stamina points? " << Center1.GetDollarCost(-3) << " because unsigned int" << endl;
-    cout << "Cost at Center 2 to get -3 stamina points? " << Center2.GetDollarCost(-3) << " because unsigned int" << endl;
-    cout << "Cost at Center 3 to get -3 stamina points? " << Center3.GetDollarCost(-3) << " because unsigned int" << endl;
+    cout << "Cost at Center 1 to get 1 stamina point? " << Center1.GetDollarCost(1) << endl;
+    cout << "Cost at Center 2 to get 1 stamina point? " << Center2.GetDollarCost(1) << endl;
+    cout << "Cost at Center 3 to get 1 stamina point? " << Center3.GetDollarCost(1) << endl;
     
     //Shows status of Center
     Center1.ShowStatus();
