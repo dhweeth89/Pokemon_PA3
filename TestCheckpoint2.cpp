@@ -143,9 +143,9 @@ int main()
     Center3.ShowStatus();
 
     //Tells whether Center was updated
-    cout << "Did Center 1's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center1.Update() << endl; 
-    cout << "Did Center 2's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center2.Update() << endl;
-    cout << "Did Center 3's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center3.Update() << endl;
+    Center1.Update(); 
+    Center2.Update();
+    Center3.Update();
 
     //Add Pokemon to Centers 1 and 2
     Center1.AddOnePokemon();
@@ -157,9 +157,9 @@ int main()
     Center3.ShowStatus();
 
     //Tells whether Center was updated
-    cout << "Did Center 1's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center1.Update() << endl; 
-    cout << "Did Center 2's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center2.Update() << endl;
-    cout << "Did Center 3's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center3.Update() << endl;
+    Center1.Update();
+    Center2.Update();
+    Center3.Update();
 
     //Remove Pokemon from all Centers to see if it goes to negative
     Center1.RemoveOnePokemon();
@@ -172,9 +172,9 @@ int main()
     Center3.ShowStatus();
 
     //Tells whether Center was updated
-    cout << "Did Center 1's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center1.Update() << endl; 
-    cout << "Did Center 2's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center2.Update() << endl;
-    cout << "Did Center 3's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center3.Update() << endl;
+    Center1.Update(); 
+    Center2.Update();
+    Center3.Update();
 
     //Tests Stamina Points
     cout << "Does Center 1 have stamina points? " << Center1.HasStaminaPoints() << endl;
@@ -204,9 +204,9 @@ int main()
     Center3.ShowStatus();
 
     //Tells whether Center was updated
-    cout << "Did Center 1's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center1.Update() << endl; 
-    cout << "Did Center 2's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center2.Update() << endl;
-    cout << "Did Center 3's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center3.Update() << endl;
+    Center1.Update(); 
+    Center2.Update();
+    Center3.Update();
 
     //Tests double GetDollarCost(unsigned int); 
     cout << "Cost at Center 1 to get 3 stamina points? " << Center1.GetDollarCost(3) << endl;
@@ -227,15 +227,15 @@ int main()
     Center3.ShowStatus();
 
     //Tells whether Center was updated
-    cout << "Did Center 1's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center1.Update() << endl; 
-    cout << "Did Center 2's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center2.Update() << endl;
-    cout << "Did Center 3's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center3.Update() << endl;
+    Center1.Update(); 
+    Center2.Update();
+    Center3.Update();
 
 
     //Test unsigned int DistributeStamina(unsigned int) Stamina Capacity is 100;
-    cout << "Taking " << Center1.DistributeStamina(20) << "stamina out of Center 1" << endl;
-    cout << "Taking " << Center2.DistributeStamina(35) << "stamina out of Center 2" << endl;
-    cout << "Taking " << Center1.DistributeStamina(41) << "stamina out of Center 3" << endl;
+    cout << "Taking " << Center1.DistributeStamina(20) << " stamina out of Center 1" << endl;
+    cout << "Taking " << Center2.DistributeStamina(35) << " stamina out of Center 2" << endl;
+    cout << "Taking " << Center3.DistributeStamina(41) << " stamina out of Center 3" << endl;
 
     //Shows status of Center
     Center1.ShowStatus();
@@ -243,14 +243,14 @@ int main()
     Center3.ShowStatus();
 
     //Tells whether Center was updated
-    cout << "Did Center 1's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center1.Update() << endl; 
-    cout << "Did Center 2's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center2.Update() << endl;
-    cout << "Did Center 3's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center3.Update() << endl;
+    Center1.Update(); 
+    Center2.Update();
+    Center3.Update();
     
     //Test unsigned int DistributeStamina(unsigned int) Stamina Capacity is 100;
-    cout << "Taking " << Center1.DistributeStamina(80) << "stamina out of Center 1 even though asked for 80 because unsigned int" << endl;
-    cout << "Taking " << Center2.DistributeStamina(80) << "stamina out of Center 2 even though asked for 80 because unsigned int" << endl;
-    cout << "Taking " << Center1.DistributeStamina(50) << "stamina out of Center 3" << endl;
+    cout << "Taking " << Center1.DistributeStamina(80) << " stamina out of Center 1" << endl;
+    cout << "Taking " << Center2.DistributeStamina(80) << " stamina out of Center 2 even though asked for 80 because unsigned int" << endl;
+    cout << "Taking " << Center3.DistributeStamina(50) << " stamina out of Center 3" << endl;
 
     //Shows status of Center
     Center1.ShowStatus();
@@ -258,14 +258,14 @@ int main()
     Center3.ShowStatus();
 
     //Tells whether Center was updated
-    cout << "Did Center 1's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center1.Update() << endl; 
-    cout << "Did Center 2's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center2.Update() << endl;
-    cout << "Did Center 3's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center3.Update() << endl;
+    Center1.Update(); 
+    Center2.Update();
+    Center3.Update();
 
     //Test unsigned int DistributeStamina(unsigned int) Stamina Capacity is 100;
-    cout << "Taking " << Center1.DistributeStamina(30) << "stamina out of Center 1 even though asked for 30 because unsigned int" << endl;
-    cout << "Taking " << Center2.DistributeStamina(35) << "stamina out of Center 2 even though asked for 35 because unsigned int" << endl;
-    cout << "Taking " << Center1.DistributeStamina(41) << "stamina out of Center 3 even though asked for 41 because unsigned int" << endl;
+    cout << "Taking " << Center1.DistributeStamina(30) << " stamina out of Center 1 even though asked for 30 because unsigned int" << endl;
+    cout << "Taking " << Center2.DistributeStamina(35) << " stamina out of Center 2 even though asked for 35 because unsigned int" << endl;
+    cout << "Taking " << Center3.DistributeStamina(41) << " stamina out of Center 3 even though asked for 41 because unsigned int" << endl;
 
     //Shows status of Center
     Center1.ShowStatus();
@@ -273,9 +273,9 @@ int main()
     Center3.ShowStatus();
 
     //Tells whether Center was updated
-    cout << "Did Center 1's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center1.Update() << endl; 
-    cout << "Did Center 2's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center2.Update() << endl;
-    cout << "Did Center 3's status change to NO_STAMINA_POINTS_AVAILABLE? " << Center3.Update() << endl;
-    
+    Center1.Update();
+    Center2.Update();
+    Center3.Update();
+
     return 0;
 }

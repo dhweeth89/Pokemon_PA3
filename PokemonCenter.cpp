@@ -84,6 +84,7 @@ bool PokemonCenter::Update()
     }
     else
     {
+        cout << "Pokemon Center " << id_num << " has not run out of stamina points" << endl;
         return false;
     }
 }

@@ -27,7 +27,10 @@ void Building::AddOnePokemon()
 
 void Building::RemoveOnePokemon()
 {
-    pokemon_count--;
+    if (pokemon_count > 0)
+    {
+        pokemon_count--;
+    }
 }
 
 void Building::ShowStatus()
