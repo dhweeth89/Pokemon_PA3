@@ -63,9 +63,9 @@ int main()
     Building Building2 = Building('B', 2, Point2D());
     Building Building3 = Building('B', 3, Point2D(3.3, 7.7));
 
-    cout << "Is Building 1 visible?" << Building1.ShouldBeVisible() << endl;
-    cout << "Is Building 2 visible?" << Building2.ShouldBeVisible() << endl;
-    cout << "Is Building 3 visible?" << Building3.ShouldBeVisible() << endl;
+    cout << "Is Building 1 visible? " << Building1.ShouldBeVisible() << endl;
+    cout << "Is Building 2 visible? " << Building2.ShouldBeVisible() << endl;
+    cout << "Is Building 3 visible? " << Building3.ShouldBeVisible() << endl;
 
     //Show Building statuses
 
@@ -99,6 +99,18 @@ int main()
 
     Building1.RemoveOnePokemon();
     Building2.RemoveOnePokemon();
+
+    //Show building statuses again
+
+    Building1.ShowStatus();
+    Building2.ShowStatus();
+    Building3.ShowStatus();
+
+    //Test for Building3 Remove a Pokemon; Should keep Building count at 0, not negative
+
+    Building1.RemoveOnePokemon();
+    Building2.RemoveOnePokemon();
+    Building3.RemoveOnePokemon();
 
     //Show building statuses again
 

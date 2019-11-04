@@ -17,6 +17,7 @@ Building::Building(char in_code, int in_Id, Point2D in_loc) : GameObject(in_loc,
     id_num = in_Id;
     location = in_loc;
     display_code = in_code; 
+    cout << "Building constructed" << endl;
 }
 
 void Building::AddOnePokemon()
