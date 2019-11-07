@@ -277,5 +277,116 @@ int main()
     Center2.Update();
     Center3.Update();
 
+//Testing PokemonGym
+    PokemonGym gym1 = PokemonGym();
+    PokemonGym gym2 = PokemonGym(20, 2, 5, 3, 2, Point2D());
+    PokemonGym gym3 = PokemonGym(25, 5, 10, 5, 3, Point2D(5, 7.3));
+
+    //Dollar cost
+    
+    cout << "Pokemon Gym1 dollar cost for 1 unit: " << gym1.GetDollarCost(1);
+    cout << "Pokemon Gym1 dollar cost for 2 units: " << gym1.GetDollarCost(2);
+
+    cout << endl;
+
+    cout << "Pokemon Gym2 dollar cost for 1 unit: " << gym2.GetDollarCost(1);
+    cout << "Pokemon Gym2 dollar cost for 2 units: " << gym2.GetDollarCost(2);
+    
+
+    cout << endl;
+
+    cout << "Pokemon Gym3 dollar cost for 1 unit: " << gym3.GetDollarCost(1);
+    cout << "Pokemon Gym3 dollar cost for 2 units: " << gym3.GetDollarCost(2);
+
+    cout << endl;
+
+    //Stamina Cost
+
+    cout << "Pokemon Gym1 stamina cost for 1 unit: " << gym1.GetStaminaCost(1);
+    cout << "Pokemon Gym1 stamina cost for 2 units: " << gym1.GetStaminaCost(2);
+
+    cout << endl;
+
+    cout << "Pokemon Gym2 stamina cost for 1 unit: " << gym2.GetStaminaCost(1);
+    cout << "Pokemon Gym2 stamina cost for 2 units: " << gym2.GetStaminaCost(2);
+    
+
+    cout << endl;
+
+    cout << "Pokemon Gym3 stamina cost for 1 unit: " << gym3.GetStaminaCost(1);
+    cout << "Pokemon Gym3 stamina cost for 2 units: " << gym3.GetStaminaCost(2);
+
+    cout << endl;
+
+    //Get Remaining Training Units
+
+    cout << "Pokemon Gym1 training units remaining: " << gym1.GetNumTrainingUnitsRemaining();
+    cout << "Pokemon Gym2 training units remaining: " << gym2.GetNumTrainingUnitsRemaining();
+    cout << "Pokemon Gym3 training units remaining" << gym3.GetNumTrainingUnitsRemaining();
+
+    cout << endl;
+
+    //Checking if Pokemon can train
+
+    // PokemonGym gym1 = new PokemonGym();
+    // PokemonGym gym2 = new PokemonGym(20, 2, 5, 3, 2, Point2D());
+    // PokemonGym gym3 = new PokemonGym(25, 5, 10, 5, 3, Point2D(5, 7.3));
+
+
+    cout << "Can a Pokemon with $20 and 5 stamina train for 4 units" << endl;
+
+    cout << "At gym 1: " << gym1.IsAbleToTrain(4, 20, 5); //Stamina cost of 1, dollar cost of 1
+    cout << "At gym 2: " << gym2.IsAbleToTrain(4, 20, 5); //Stamina cost of 2, dollar cost of 5
+    cout << "At gym 3: " << gym3.IsAbleToTrain(4, 20, 5); //Stamina cost of 5, dollar cost of 10
+    
+    cout << endl;
+
+
+    cout << "Can a Pokemon with $50 and 30 stamina train for 3 units" << endl;
+
+    cout << "At gym 1: " << gym1.IsAbleToTrain(3, 50, 30); //Stamina cost of 1, dollar cost of 1
+    cout << "At gym 2: " << gym2.IsAbleToTrain(3, 50, 30); //Stamina cost of 2, dollar cost of 5
+    cout << "At gym 3: " << gym3.IsAbleToTrain(3, 50, 30); //Stamina cost of 5, dollar cost of 10
+    
+    cout << endl;
+
+    //Update(), IsBeaten(), ShowStatus(), TrainPokemon(training_units)
+
+    cout << "Each turn will consume 5 training points from each gym" << endl;
+
+    gym1.ShowStatus();
+    cout << endl;
+    gym2.ShowStatus();
+    cout << endl;
+    gym3.ShowStatus();
+    cout << endl;
+    
+    for (int i=0; i<5; i++)
+    {
+        
+        cout << "Is gym 1 beaten? " << gym1.IsBeaten() << endl;
+        cout << "Is gym 2 beaten? " << gym2.IsBeaten() << endl;
+        cout << "Is gym 3 beaten? " << gym3.IsBeaten() << endl;
+
+        cout << endl;
+        cout << "Reiterating using Update()" << endl;
+
+        gym1.Update();
+        gym2.Update();
+        gym3.Update();
+
+        cout << endl;
+        cout << "The status for each gym:" << endl;
+        cout << endl;
+
+        gym1.ShowStatus();
+        cout << endl;
+        gym2.ShowStatus();
+        cout << endl;
+        gym3.ShowStatus();
+        cout << endl;
+    }
+
+
     return 0;
 }
