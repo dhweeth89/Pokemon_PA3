@@ -284,45 +284,45 @@ int main()
 
     //Dollar cost
     
-    cout << "Pokemon Gym1 dollar cost for 1 unit: " << gym1.GetDollarCost(1);
-    cout << "Pokemon Gym1 dollar cost for 2 units: " << gym1.GetDollarCost(2);
+    cout << "Pokemon Gym1 dollar cost for 1 unit: " << gym1.GetDollarCost(1) << endl;
+    cout << "Pokemon Gym1 dollar cost for 2 units: " << gym1.GetDollarCost(2) << endl;
 
     cout << endl;
 
-    cout << "Pokemon Gym2 dollar cost for 1 unit: " << gym2.GetDollarCost(1);
-    cout << "Pokemon Gym2 dollar cost for 2 units: " << gym2.GetDollarCost(2);
+    cout << "Pokemon Gym2 dollar cost for 1 unit: " << gym2.GetDollarCost(1) << endl;
+    cout << "Pokemon Gym2 dollar cost for 2 units: " << gym2.GetDollarCost(2) << endl;
     
 
     cout << endl;
 
-    cout << "Pokemon Gym3 dollar cost for 1 unit: " << gym3.GetDollarCost(1);
-    cout << "Pokemon Gym3 dollar cost for 2 units: " << gym3.GetDollarCost(2);
+    cout << "Pokemon Gym3 dollar cost for 1 unit: " << gym3.GetDollarCost(1) << endl;
+    cout << "Pokemon Gym3 dollar cost for 2 units: " << gym3.GetDollarCost(2) << endl;
 
     cout << endl;
 
     //Stamina Cost
 
-    cout << "Pokemon Gym1 stamina cost for 1 unit: " << gym1.GetStaminaCost(1);
-    cout << "Pokemon Gym1 stamina cost for 2 units: " << gym1.GetStaminaCost(2);
+    cout << "Pokemon Gym1 stamina cost for 1 unit: " << gym1.GetStaminaCost(1) << endl;
+    cout << "Pokemon Gym1 stamina cost for 2 units: " << gym1.GetStaminaCost(2) << endl;
 
     cout << endl;
 
-    cout << "Pokemon Gym2 stamina cost for 1 unit: " << gym2.GetStaminaCost(1);
-    cout << "Pokemon Gym2 stamina cost for 2 units: " << gym2.GetStaminaCost(2);
+    cout << "Pokemon Gym2 stamina cost for 1 unit: " << gym2.GetStaminaCost(1) << endl;
+    cout << "Pokemon Gym2 stamina cost for 2 units: " << gym2.GetStaminaCost(2) << endl;
     
 
     cout << endl;
 
-    cout << "Pokemon Gym3 stamina cost for 1 unit: " << gym3.GetStaminaCost(1);
-    cout << "Pokemon Gym3 stamina cost for 2 units: " << gym3.GetStaminaCost(2);
+    cout << "Pokemon Gym3 stamina cost for 1 unit: " << gym3.GetStaminaCost(1) << endl;
+    cout << "Pokemon Gym3 stamina cost for 2 units: " << gym3.GetStaminaCost(2) << endl;
 
     cout << endl;
 
     //Get Remaining Training Units
 
-    cout << "Pokemon Gym1 training units remaining: " << gym1.GetNumTrainingUnitsRemaining();
-    cout << "Pokemon Gym2 training units remaining: " << gym2.GetNumTrainingUnitsRemaining();
-    cout << "Pokemon Gym3 training units remaining" << gym3.GetNumTrainingUnitsRemaining();
+    cout << "Pokemon Gym1 training units remaining: " << gym1.GetNumTrainingUnitsRemaining() << endl;
+    cout << "Pokemon Gym2 training units remaining: " << gym2.GetNumTrainingUnitsRemaining() << endl;
+    cout << "Pokemon Gym3 training units remaining" << gym3.GetNumTrainingUnitsRemaining() << endl;
 
     cout << endl;
 
