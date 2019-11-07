@@ -335,18 +335,18 @@ int main()
 
     cout << "Can a Pokemon with $20 and 5 stamina train for 4 units" << endl;
 
-    cout << "At gym 1: " << gym1.IsAbleToTrain(4, 20, 5); //Stamina cost of 1, dollar cost of 1
-    cout << "At gym 2: " << gym2.IsAbleToTrain(4, 20, 5); //Stamina cost of 2, dollar cost of 5
-    cout << "At gym 3: " << gym3.IsAbleToTrain(4, 20, 5); //Stamina cost of 5, dollar cost of 10
+    cout << "At gym 1: " << gym1.IsAbleToTrain(4, 20, 5) << endl; //Stamina cost of 1, dollar cost of 1
+    cout << "At gym 2: " << gym2.IsAbleToTrain(4, 20, 5) << endl; //Stamina cost of 2, dollar cost of 5
+    cout << "At gym 3: " << gym3.IsAbleToTrain(4, 20, 5) << endl; //Stamina cost of 5, dollar cost of 10
     
     cout << endl;
 
 
     cout << "Can a Pokemon with $50 and 30 stamina train for 3 units" << endl;
 
-    cout << "At gym 1: " << gym1.IsAbleToTrain(3, 50, 30); //Stamina cost of 1, dollar cost of 1
-    cout << "At gym 2: " << gym2.IsAbleToTrain(3, 50, 30); //Stamina cost of 2, dollar cost of 5
-    cout << "At gym 3: " << gym3.IsAbleToTrain(3, 50, 30); //Stamina cost of 5, dollar cost of 10
+    cout << "At gym 1: " << gym1.IsAbleToTrain(3, 50, 30) << endl; //Stamina cost of 1, dollar cost of 1
+    cout << "At gym 2: " << gym2.IsAbleToTrain(3, 50, 30) << endl; //Stamina cost of 2, dollar cost of 5
+    cout << "At gym 3: " << gym3.IsAbleToTrain(3, 50, 30) << endl; //Stamina cost of 5, dollar cost of 10
     
     cout << endl;
 
