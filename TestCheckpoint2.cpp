@@ -372,17 +372,14 @@ int main()
         gym2.TrainPokemon(5);
         gym3.TrainPokemon(5);
 
+        gym1.Update();
+        gym2.Update();
+        gym3.Update();
+
 
         cout << "Is gym 1 beaten? " << gym1.IsBeaten() << endl;
         cout << "Is gym 2 beaten? " << gym2.IsBeaten() << endl;
         cout << "Is gym 3 beaten? " << gym3.IsBeaten() << endl;
-
-        cout << endl;
-        cout << "Reiterating using Update()" << endl;
-
-        gym1.Update();
-        gym2.Update();
-        gym3.Update();
 
         cout << endl;
         cout << "The status for each gym:" << endl;
