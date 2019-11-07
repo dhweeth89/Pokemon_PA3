@@ -363,7 +363,11 @@ int main()
     
     for (int i=0; i<5; i++)
     {
-        
+        cout << "Adding Pokemon to each gym" << endl;
+        gym1.AddOnePokemon();
+        gym2.AddOnePokemon();
+        gym3.AddOnePokemon();
+
         cout << "Is gym 1 beaten? " << gym1.IsBeaten() << endl;
         cout << "Is gym 2 beaten? " << gym2.IsBeaten() << endl;
         cout << "Is gym 3 beaten? " << gym3.IsBeaten() << endl;
@@ -386,6 +390,18 @@ int main()
         gym3.ShowStatus();
         cout << endl;
     }
+
+    cout << "Removing one pokemon from each gym" << endl;
+    gym1.RemoveOnePokemon();
+    gym2.RemoveOnePokemon();
+    gym3.RemoveOnePokemon();
+
+    gym1.ShowStatus();
+    cout << endl;
+    gym2.ShowStatus();
+    cout << endl;
+    gym3.ShowStatus();
+    cout << endl;    
 
 
     return 0;
