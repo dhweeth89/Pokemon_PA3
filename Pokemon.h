@@ -1,13 +1,18 @@
+#ifndef POKEMON_H
+#define POKEMON_H
+
+
 #include "Point2D.h"
 #include "Vector2D.h"
 #include "GameObject.h"
 #include "PokemonCenter.h"
 #include "PokemonGym.h"
 #include <iostream>
+#include "string.h"
 
 using namespace std;
 
-class Pokemon{
+class Pokemon : public GameObject{
 
     enum PokemonStates{
         STOPPED = 0,
@@ -64,3 +69,5 @@ class Pokemon{
 
 
 double GetRandomAountOfPokemonDollars();
+
+#endif
