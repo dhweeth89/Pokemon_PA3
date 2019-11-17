@@ -4,13 +4,15 @@
 #include "Building.h"
 #include "Point2D.h"
 
+enum PokemonCenterStates{
+    STAMINA_POINTS_AVAILABLE = 0,
+    NO_STAMINA_POINTS_AVAILABLE = 1
+};
+
+
+
 class PokemonCenter : public Building
 {
-    enum PokemonCenterStates{
-        STAMINA_POINTS_AVAILABLE = 0,
-        NO_STAMINA_POINTS_AVAILABLE = 1
-    };
-
     private:
 
     unsigned int stamina_capacity;

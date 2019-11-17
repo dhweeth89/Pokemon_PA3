@@ -1,13 +1,15 @@
 #ifndef POKEMONGYM_H
 #define POKEMONGYM_H
 
+    
+    enum PokemonGymStates{
+        NOT_BEATEN = 0,
+        BEATEN = 1
+    };
+
+    
     class PokemonGym : public Building
     {
-
-        enum PokemonGymStates{
-            NOT_BEATEN = 0,
-            BEATEN = 1
-        };
 
         private:
 

@@ -12,9 +12,7 @@
 
 using namespace std;
 
-class Pokemon : public GameObject{
-
-    enum PokemonStates{
+enum PokemonStates{
         STOPPED = 0,
         MOVING = 1,
         EXHAUSTED = 2,
@@ -26,6 +24,10 @@ class Pokemon : public GameObject{
         RECOVERING_STAMINA = 8
 
     };
+
+
+
+class Pokemon : public GameObject{
 
     private:
 
