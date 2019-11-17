@@ -65,7 +65,7 @@ class Pokemon : public GameObject{
         bool IsExhausted();
         bool ShouldBeVisible();
         void ShowStatus();
-        bool Updaate();
+        bool Update();
 
 };
 
