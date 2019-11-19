@@ -85,6 +85,7 @@ bool PokemonGym::Update()
     }
     else
     {
+        cout << display_code << id_num << " has not yet been beaten" << endl;
         return false;
     }
 }

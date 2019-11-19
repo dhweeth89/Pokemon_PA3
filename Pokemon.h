@@ -7,6 +7,7 @@
 #include "GameObject.h"
 #include "PokemonCenter.h"
 #include "PokemonGym.h"
+#include "Building.h"
 #include <iostream>
 #include "string.h"
 
@@ -70,6 +71,6 @@ class Pokemon : public GameObject{
 };
 
 
-double GetRandomAountOfPokemonDollars();
+double GetRandomAmountOfPokemonDollars();
 
 #endif
