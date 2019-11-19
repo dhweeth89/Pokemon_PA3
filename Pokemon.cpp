@@ -99,13 +99,13 @@ void Pokemon::StartMoving(Point2D dest)
     }
  
 
-    if ((fabs(this->location.x - dest.x)) <= fabs(delta.x) && (fabs(this->location.y - dest.y) <= fabs(delta.y)))
-    {
-        cout << this->display_code << this->id_num << ": I'm already here. See?" << endl;
-    }
-    else if (this->state == EXHAUSTED)
+    if (this->state == EXHAUSTED)
     {
         cout << this->display_code << this->id_num << ": I am exhausted. I may move but you cannot see me." << endl;
+    }
+    else if ((fabs(this->location.x - dest.x)) <= fabs(delta.x) && (fabs(this->location.y - dest.y) <= fabs(delta.y)))
+    {
+        cout << this->display_code << this->id_num << ": I'm already here. See?" << endl;
     }
     else
     {
@@ -137,14 +137,14 @@ void Pokemon::StartMovingToCenter(PokemonCenter* center)
     
     current_center = center;
 
-    if ((fabs(this->location.x - destination.x)) <= fabs(delta.x) && (fabs(this->location.y - destination.y) <= fabs(delta.y)))
-    {
-        cout << this->display_code << this->id_num << ": I'm already at the Pokemon Center!" << endl;
-        state = MOVING_TO_CENTER;
-    }
-    else if (this->state == EXHAUSTED)
+    if (this->state == EXHAUSTED)
     {
         cout << this->display_code << this->id_num << ": I am exhausted so I can't move to recover stamina." << endl;
+    }
+    else if ((fabs(this->location.x - destination.x)) <= fabs(delta.x) && (fabs(this->location.y - destination.y) <= fabs(delta.y)))
+    {
+        cout << this->display_code << this->id_num << ": I'm already at the Pokemon Center!" << endl;
+        state = IN_CENTER;
     }
     else
     {
@@ -176,14 +176,14 @@ void Pokemon::StartMovingToGym(PokemonGym* gym)
 
     current_gym = gym;
  
-    if ((fabs(this->location.x - destination.x)) <= fabs(delta.x) && (fabs(this->location.y - destination.y) <= fabs(delta.y)))
-    {
-        cout << this->display_code << this->id_num << ": I'm already at the Pokemon Gym!" << endl;
-        state = MOVING_TO_GYM;
-    }
-    else if (this->state == EXHAUSTED)
+    if (this->state == EXHAUSTED)
     {
         cout << this->display_code << this->id_num << ": I am exhausted so I shouldn't be going to the gym..." << endl;
+    }
+    else if ((fabs(this->location.x - destination.x)) <= fabs(delta.x) && (fabs(this->location.y - destination.y) <= fabs(delta.y)))
+    {
+        cout << this->display_code << this->id_num << ": I'm already at the Pokemon Gym!" << endl;
+        state = IN_GYM;
     }
     else
     {
@@ -256,6 +256,8 @@ void Pokemon::StartRecoveringStamina(unsigned int num_stamina_points)
     }
     else
     {
+        cout << this->display_code << this->id_num << ": Performing training." << endl;
+        
         if (num_stamina_points > current_center->GetNumStaminaPointsRemaining())
         {
             stamina_points_to_buy = current_center->GetNumStaminaPointsRemaining();
@@ -401,7 +403,7 @@ bool Pokemon::Update()
 
         case MOVING:
         {
-            if (UpdateLocation())
+            if (UpdateLocation() && IsExhausted() == false)
             {
                 state = STOPPED;
                 return true;
@@ -433,7 +435,7 @@ bool Pokemon::Update()
 
         case MOVING_TO_CENTER:
         {
-            if (UpdateLocation())
+            if (UpdateLocation() && IsExhausted() == false)
             {
                 state = IN_CENTER;
                 current_center->AddOnePokemon();
@@ -448,7 +450,7 @@ bool Pokemon::Update()
                 }
                 else
                 {
-                    state = MOVING;
+                    state = MOVING_TO_CENTER;
                     return false;
                 }
                 
@@ -457,7 +459,7 @@ bool Pokemon::Update()
 
         case MOVING_TO_GYM:
         {
-            if (UpdateLocation())
+            if (UpdateLocation() && IsExhausted() == false)
             {
                 state = IN_GYM;
                 current_gym->AddOnePokemon();
@@ -472,7 +474,7 @@ bool Pokemon::Update()
                 }
                 else
                 {
-                    state = MOVING;
+                    state = MOVING_TO_GYM;
                     return false;
                 }
             }
@@ -569,12 +571,17 @@ bool Pokemon::Update()
 
 bool Pokemon::UpdateLocation()
 {
-    if (fabs(this->location.x - this->destination.x) <= fabs(this->delta.x) && fabs(this->location.y - this->destination.y) <= fabs(this->delta.y))
+    if (IsExhausted() == true)
+    {
+         cout << this->display_code << this->id_num << ": is exhausted..." << endl;
+        return false;
+    }
+    else if (fabs(this->location.x - this->destination.x) <= fabs(this->delta.x) && fabs(this->location.y - this->destination.y) <= fabs(this->delta.y))
     {
         cout << this->display_code << this->id_num << ": I'm there!" << endl;
         return true;
     }
-    else 
+    else
     {
         cout << this->display_code << this->id_num << ": step..." << endl;
         return false;

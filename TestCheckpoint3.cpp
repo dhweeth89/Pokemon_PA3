@@ -16,7 +16,7 @@ srand(time(NULL));
 
 //Testing PokemonCenter class
 
-    PokemonCenter Center1 = PokemonCenter(1, Point2D(9.85, 3.7));
+    PokemonCenter Center1 = PokemonCenter(1, Point2D(0, 0.3));
 
     //Test PokemonCenter visibility
     cout << "Is Center 1 visible? " << Center1.ShouldBeVisible() << endl;
@@ -31,7 +31,7 @@ srand(time(NULL));
   
 //Testing PokemonGym
     
-    PokemonGym gym1 = PokemonGym(25, 5, 1, 5, 1, Point2D(5, 7.3));    
+    PokemonGym gym1 = PokemonGym(25, 5, 1, 5, 1, Point2D(8, 7.3));    
 
     cout << "Is Gym 1 visible? " << gym1.ShouldBeVisible() << endl;
 
@@ -49,7 +49,7 @@ srand(time(NULL));
     Pokemon p3 = Pokemon('P');
 
     
-    pikachu.StartMoving(Point2D(3,9));
+    pikachu.StartMoving(Point2D(12,13));
     pikachu.Update();
     cout << endl;
     pikachu.ShowStatus();
@@ -58,7 +58,7 @@ srand(time(NULL));
 
     while (pikachu.GetState() == MOVING)
     {
-        pikachu.StartMoving(Point2D(3,9));
+        pikachu.StartMoving(Point2D(12,13));
         cout << endl;
         pikachu.Update();
         cout << endl;
@@ -66,7 +66,7 @@ srand(time(NULL));
         cout << endl;
     }
 
-    pikachu.StartMoving(Point2D(3,9));
+    pikachu.StartMoving(Point2D(12,13));
     cout << endl;
     
     pikachu.StartMovingToGym(&gym1);
@@ -164,13 +164,52 @@ srand(time(NULL));
     cout << "Should Pikachu be visible? " << pikachu.ShouldBeVisible() << endl;
     cout << "Is Pikachu exhausted? " << pikachu.IsExhausted() << endl;
 
-    cout << "_________________________________________" << endl;
-    cout << "Checking to see status of Pokemon Center" << endl;    
-    Center1.ShowStatus();
+    pikachu.StartTraining(2);
     cout << endl;
+
+    pikachu.StartRecoveringStamina(1);
+    cout << endl;
+    pikachu.Update();
+    cout << endl;
+    pikachu.ShowStatus();
+    cout << endl;
+
+    while (pikachu.Update() == false)
+    {
+        pikachu.StartMovingToGym(&gym1);
+        cout << endl;
+        //pikachu.Update();
+        //cout << endl;
+        pikachu.ShowStatus();
+        cout << endl;
+    }
+
+    pikachu.StartMovingToGym(&gym1);
+    cout << endl;
+    pikachu.Update();
+    cout << endl;
+    pikachu.ShowStatus();
+    cout << endl;
+
+    
+    cout << "_________________________________________" << endl;
+    cout << "Checking to see if center is now empty" << endl;
     Center1.Update();
     cout << endl;
+    Center1.ShowStatus();
+    cout << endl;
+    cout << "______________________________________" << endl;
+    
     cout << "_________________________________________" << endl;
+    cout << "Checking to see if gym is now empty" << endl;
+    gym1.Update();
+    cout << endl;
+    gym1.ShowStatus();
+    cout << endl;
+    cout << "______________________________________" << endl;
+
+
+
 
 
 
