@@ -337,30 +337,14 @@ void Pokemon::ShowStatus()
 
        case IN_CENTER:
        {
-           cout << "_______________________________________________________" << endl;
            cout << " inside Pokemon Center " << current_center->GetId() << endl;
-           cout << endl;
-           cout << "Pokemon Center Updates: " << endl;
-           current_center->Update();
-           cout << endl;
-           cout << "Pokemon Center Status: " << endl;
-           current_center->ShowStatus();
-           cout << "________________________________________________________" << endl;
            cout << endl;
            break;
        }
 
        case IN_GYM:
        {
-           cout << "_______________________________________________________" << endl;
            cout << " inside Pokemon Gym " << current_gym->GetId() << endl;
-           cout << endl;
-           cout << "Pokemon Gym Updates: " << endl;
-           current_gym->Update();
-           cout << endl;
-           cout << "Pokemon Gym Status: " << endl;
-           current_gym->ShowStatus();
-           cout << "_______________________________________________________" << endl;
            cout << endl;
            break; 
        }
