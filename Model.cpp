@@ -168,3 +168,24 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
            object_ptrs[i]->ShowStatus();
        }
    }
+
+
+    int Model::GetNumObjects()
+    {
+        return this->num_objects;
+    }
+
+    int Model::GetNumCenters()
+    {
+        return this->num_centers;
+    }
+
+    int Model::GetNumGyms()
+    {
+        return this->num_gyms;
+    }
+
+    int Model::GetNumPokemon()
+    {
+        return this->num_pokemon;
+    }

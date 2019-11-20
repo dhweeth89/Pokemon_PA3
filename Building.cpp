@@ -20,6 +20,11 @@ Building::Building(char in_code, int in_Id, Point2D in_loc) : GameObject(in_loc,
     cout << "Building constructed" << endl;
 }
 
+Building::~Building()
+{
+    cout << "Building destructed" << endl;
+}
+
 void Building::AddOnePokemon()
 {
     pokemon_count++;

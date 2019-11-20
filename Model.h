@@ -39,6 +39,11 @@ class Model
     //void Display(View& view);
     void ShowStatus();
 
+    int GetNumObjects();
+    int GetNumCenters();
+    int GetNumGyms();
+    int GetNumPokemon();
+
 
 
 

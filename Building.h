@@ -13,6 +13,7 @@ class Building : public GameObject
     public:
         Building();
         Building(char, int, Point2D);
+        ~Building();
 
         void AddOnePokemon();
 
