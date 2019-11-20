@@ -37,7 +37,7 @@ void GameCommand::DoMoveCommand(Model& model, int pokemon_id, Point2D p1)
         Pokemon* ptrPokemon = model.GetPokemonPtr(pokemon_id);
 
         ptrPokemon->StartMoving(p1);
-        cout << "Moving " << ptrPokemon->getName << " to " << p1 << endl;
+        cout << "Moving " << ptrPokemon->getName() << " to " << p1 << endl;
     }
     
 }
@@ -54,7 +54,7 @@ void GameCommand::DoMoveToCenterCommand(Model& model, int pokemon_id, int center
         PokemonCenter* ptrCenter = model.GetPokemonCenterPtr(center_id);
 
         ptrPokemon->StartMovingToCenter(ptrCenter);
-        cout << "Moving " << ptrPokemon->getName << " to Center " << center_id << endl;
+        cout << "Moving " << ptrPokemon->getName() << " to Center " << center_id << endl;
     }
 
 }
@@ -71,7 +71,7 @@ void GameCommand::DoMoveToGymCommand(Model& model, int pokemon_id, int gym_id)
         PokemonGym* ptrGym = model.GetPokemonGymPtr(gym_id);
 
         ptrPokemon->StartMovingToGym(ptrGym);
-        cout << "Moving " << ptrPokemon->getName << " to Gym " << gym_id << endl;
+        cout << "Moving " << ptrPokemon->getName() << " to Gym " << gym_id << endl;
     }
     
 }
@@ -87,22 +87,64 @@ void GameCommand::DoStopCommand(Model& model, int pokemon_id)
     {
         Pokemon* ptrPokemon = model.GetPokemonPtr(pokemon_id);
         ptrPokemon->Stop();
+        cout << "Stopping " << ptrPokemon->getName() << endl;
     }
     
 }
 
-void GameCommand::DoTrainInGymCommand(Model& model, int, unsigned int)
+void GameCommand::DoTrainInGymCommand(Model& model, int pokemon_id, unsigned int training_units)
 {
-
+    if ( pokemon_id <= 0 || pokemon_id > model.GetNumPokemon() )
+    {
+        cout << "Error: Please enter a valid command!" << endl;
+    }
+    else
+    {
+        Pokemon* ptrPokemon = model.GetPokemonPtr(pokemon_id);
+        cout << "Training " << ptrPokemon->getName() << endl;
+        ptrPokemon->StartTraining(training_units);
+    }
+    
 }
 
 
-void GameCommand::DoRecoverInCenterCommand(Model&, int, unsigned int)
+void GameCommand::DoRecoverInCenterCommand(Model& model, int pokemon_id, unsigned int stamina_points)
 {
-
+    if ( pokemon_id <= 0 || pokemon_id > model.GetNumPokemon() )
+    {
+        cout << "Error: Please enter a valid command!" << endl;
+    }
+    else
+    {
+        Pokemon* ptrPokemon = model.GetPokemonPtr(pokemon_id);
+        cout << "Recovering " << ptrPokemon->getName() << "'s stamina" << endl;
+        ptrPokemon->StartRecoveringStamina(stamina_points);
+    }
 }
 
-//void GameCommand::DoGoCommand(Model&, View&)
-//void GameCommand::DoRunCommand(Model&, View&)
+/*
 
+void GameCommand::DoGoCommand(Model& model, View& view)
+{
+    cout << "Advancing one tick." << endl;
+    model.Update();
+    view.Draw();
+}
+
+
+void GameCommand::DoRunCommand(Model& model, View& view)
+{
+    cout << "Advancing to next event." << endl;
+    int i = 0;
+    bool updateTruth = false;
+
+    while (i<5 && !(updateTruth))
+    {
+        updateTruth = model.Update();
+        view.Draw();
+        i++;
+    }
+}
+
+*/
 
