@@ -24,6 +24,11 @@ GameObject::GameObject(Point2D in_loc, int in_id, char in_code)
     cout << "GameObject constructed" << endl;
 }
         
+GameObject::~GameObject()
+{
+    cout << "GameObject destructed" << endl;
+}   
+
 //Functions
 Point2D GameObject::GetLocation()
 {

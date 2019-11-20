@@ -82,6 +82,11 @@ Pokemon::Pokemon(string in_name, int in_id, char in_code, unsigned int in_speed,
     cout << "Pokemon constructed" << endl;
 }
 
+Pokemon::~Pokemon()
+{
+    cout << "Pokemon destructed" << endl;
+}
+
 void Pokemon::StartMoving(Point2D dest)
 { 
     SetupDestination(dest);

@@ -20,12 +20,16 @@ class GameObject
         //Constructors
         GameObject(char);
         GameObject(Point2D, int, char);
+        virtual ~GameObject();
         
         //Functions
         Point2D GetLocation();
         int GetId();
         char GetState();
         void ShowStatus();
+        virtual bool Update() = 0;
+        virtual void ShowStatus();
+        virtual bool ShouldBeVisible() = 0;
 
 };
 

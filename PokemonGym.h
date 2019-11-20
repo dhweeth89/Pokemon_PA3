@@ -23,7 +23,7 @@
 
         PokemonGym();
         PokemonGym(unsigned int, unsigned int, double, unsigned int, int, Point2D);
-
+        ~PokemonGym();
 
         double GetDollarCost(unsigned int);
         unsigned int GetStaminaCost(unsigned int);
