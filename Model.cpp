@@ -44,18 +44,18 @@ using namespace std;
        
        //Pokemon::Pokemon(string in_name, int in_id, char in_code, unsigned int in_speed, Point2D in_loc)
        
-       Pokemon* p1 = new Pokemon("Pikachu", 1, 'P', 5, Point2D(5,1));
-       Pokemon* p2 = new Pokemon("Squirtle", 2, 'P', 7, Point2D(10,1));
+       Pokemon* p1 = new Pokemon("Pikachu", 1, 'P', 2, Point2D(5,1));
+       Pokemon* p2 = new Pokemon("Bulbasaur", 2, 'P', 1, Point2D(10,1));
 
        //int in_Id, Point2D in_loc
-       PokemonCenter* c1 = new PokemonCenter(1, Point2D(1,20));
-       PokemonCenter* c2 = new PokemonCenter(2, Point2D(10,20));
+       PokemonCenter* c1 = new PokemonCenter(1, 1, 100, Point2D(1,20));
+       PokemonCenter* c2 = new PokemonCenter(2, 2, 200, Point2D(10,20));
        
        /*PokemonGym::PokemonGym(unsigned int max_training_units, unsigned int stamina_cost, double dollar_cost, 
 unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_id, in_loc)*/
 
        PokemonGym* g1 = new PokemonGym();
-       PokemonGym* g2 = new PokemonGym(25, 3, 1.8, 4, 2, Point2D(5,5) );
+       PokemonGym* g2 = new PokemonGym(20, 5, 7.5, 8, 2, Point2D(5,5) );
 
        num_objects = 6;
        num_pokemon = 2;
@@ -95,22 +95,63 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
 
    Pokemon* Model::GetPokemonPtr(int id)
    {
-
+       return pokemon_ptrs[id-1];
    }
 
    PokemonCenter* Model::GetPokemonCenterPtr(int id)
    {
-
+       return center_ptrs[id-1];
    }
 
    PokemonGym* Model::GetPokemonGymPtr(int id)
    {
-
+       return gym_ptrs[id-1];
    }
 
    bool Model::Update()
    {
+       bool status_to_return = false;
+       int gyms_beaten_counter = 0;
+       int pokemon_exhausted_counter = 0;
+       
+       time += 1;       
 
+       for (int i = 0; i < num_objects; i++)
+       {
+           if (object_ptrs[i]->Update() == true)
+           {
+               status_to_return = true;
+           }
+       }
+
+        for (int i = 0; i < num_gyms; i++)
+        {
+            if (gym_ptrs[i]->Update() == true)
+            {
+                gyms_beaten_counter += 1;
+            }
+        }
+
+        for (int i = 0; i < num_pokemon; i++)
+        {
+            if (pokemon_ptrs[i]->Update() == true)
+            {
+                pokemon_exhausted_counter += 1;
+            }
+        }
+
+
+
+        if (gyms_beaten_counter == num_gyms)
+        {
+            cout << "GAME OVER: You win! All Pokemon Gyms Beaten!" << endl;
+        }
+        else if (pokemon_exhausted_counter == num_pokemon)
+        {
+            cout << "GAME OVER: You lose! All of your Pokemon are tired!" << endl;
+        }
+
+        return status_to_return;
    }
 
 /*
@@ -122,5 +163,8 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
 
    void Model::ShowStatus()
    {
-
+       for (int i = 0; i < num_objects; i++ )
+       {
+           object_ptrs[i]->ShowStatus();
+       }
    }

@@ -15,11 +15,11 @@ PokemonCenter::PokemonCenter() : Building('C', 1, Point2D())
     cout << "PokemonCenter default constructed" << endl;
 }
 
-PokemonCenter::PokemonCenter(int in_Id, Point2D in_loc) : Building('C', in_Id, in_loc)
+PokemonCenter::PokemonCenter(int in_Id, double stamina_cost, unsigned int stamina_cap, Point2D in_loc) : Building('C', in_Id, in_loc)
 {
-    stamina_capacity = 100;
+    stamina_capacity = stamina_cap;
     num_stamina_points_remaining = stamina_capacity;
-    dollar_cost_per_stamina_point = 5;
+    dollar_cost_per_stamina_point = stamina_cost;
     state = STAMINA_POINTS_AVAILABLE;
     cout << "PokemonCenter constructed" << endl;
 }

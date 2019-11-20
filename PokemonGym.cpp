@@ -12,8 +12,8 @@ PokemonGym::PokemonGym() : Building('G', 1, Point2D())
     max_number_of_training_units = 10;
     num_training_units_remaining = max_number_of_training_units;
     stamina_cost_per_training_unit = 1;
-    dollar_cost_per_training_unit = 1.0;
-    experience_points_per_training_unit = 2;
+    dollar_cost_per_training_unit = 2.0;
+    experience_points_per_training_unit = 3;
     cout << "PokemonGym default constructed" << endl;
 }
 
