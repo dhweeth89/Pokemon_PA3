@@ -584,6 +584,10 @@ void Pokemon::SetupDestination(Point2D dest)
     this->delta.y = (destination.y - location.y) * (speed / GetDistanceBetween(this->destination, this->location));
 }
 
+string Pokemon::getName()
+{
+    return this->name;
+}
 
 double GetRandomAmountOfPokemonDollars()
 {

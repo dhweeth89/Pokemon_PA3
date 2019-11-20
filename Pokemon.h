@@ -69,6 +69,8 @@ class Pokemon : public GameObject{
         void ShowStatus();
         bool Update();
 
+        string getName();
+
 };
 
 

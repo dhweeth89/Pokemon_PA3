@@ -54,7 +54,7 @@ using namespace std;
        /*PokemonGym::PokemonGym(unsigned int max_training_units, unsigned int stamina_cost, double dollar_cost, 
 unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_id, in_loc)*/
 
-       PokemonGym* g1 = new PokemonGym();
+       PokemonGym* g1 = new PokemonGym(10, 1, 2.0, 3, 1, Point2D());
        PokemonGym* g2 = new PokemonGym(20, 5, 7.5, 8, 2, Point2D(5,5) );
 
        num_objects = 6;
