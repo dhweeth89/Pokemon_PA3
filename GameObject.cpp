@@ -50,5 +50,9 @@ void GameObject::ShowStatus()
     cout << display_code << " status: " << id_num << " at " << location;
 }
 
-
+void GameObject::DrawSelf(char* ptr)
+{
+    *ptr = this->display_code;
+    *(ptr+1) = (char) (this->id_num + 48);
+}
 //Will add pure virtual functions later

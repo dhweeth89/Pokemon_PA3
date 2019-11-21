@@ -21,6 +21,7 @@ class GameObject
         GameObject(char);
         GameObject(Point2D, int, char);
         virtual ~GameObject();
+        void DrawSelf(char *);
         
         //Functions
         Point2D GetLocation();
