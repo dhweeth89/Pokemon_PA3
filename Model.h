@@ -8,6 +8,7 @@
 #include "PokemonGym.h"
 #include "Building.h"
 #include "Pokemon.h"
+#include "View.h"
 
 #include <iostream>
 #include "string.h"
@@ -36,7 +37,7 @@ class Model
     PokemonCenter* GetPokemonCenterPtr(int id);
     PokemonGym* GetPokemonGymPtr(int id);
     bool Update();
-    //void Display(View& view);
+    void Display(View& view);
     void ShowStatus();
 
     int GetNumObjects();

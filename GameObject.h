@@ -21,13 +21,14 @@ class GameObject
         GameObject(char);
         GameObject(Point2D, int, char);
         virtual ~GameObject();
-        void DrawSelf(char *);
+        
         
         //Functions
         Point2D GetLocation();
+        void DrawSelf(char *);
         int GetId();
         char GetState();
-        void ShowStatus();
+        //void ShowStatus();
         virtual bool Update() = 0;
         virtual void ShowStatus();
         virtual bool ShouldBeVisible() = 0;

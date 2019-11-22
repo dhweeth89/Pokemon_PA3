@@ -52,7 +52,16 @@ void GameObject::ShowStatus()
 
 void GameObject::DrawSelf(char* ptr)
 {
-    *ptr = this->display_code;
-    *(ptr+1) = (char) (this->id_num + 48);
+    if ((*ptr) == '.' && *(ptr+1) == ' ')
+    {
+        *ptr = this->display_code;
+        *(ptr+1) = (char) (this->id_num + 48);
+    }
+    else
+    {
+        *ptr = '*';
+        *(ptr+1) = ' ';
+    }
+    
 }
 //Will add pure virtual functions later

@@ -8,6 +8,9 @@
 #include <iostream>
 #include "string.h"
 #include "math.h"
+#include "View.h"
+#include "stdlib.h"
+
 
 using namespace std;
 
@@ -115,7 +118,7 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
        int pokemon_exhausted_counter = 0;
        
        time += 1;       
-
+/*
        for (int i = 0; i < num_objects; i++)
        {
            if (object_ptrs[i]->Update() == true)
@@ -123,18 +126,27 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
                status_to_return = true;
            }
        }
-
+*/
         for (int i = 0; i < num_gyms; i++)
         {
             if (gym_ptrs[i]->Update() == true)
             {
                 gyms_beaten_counter += 1;
+                status_to_return = true;
+            }
+        }
+
+        for (int i=0; i < num_centers; i++)
+        {
+            if (center_ptrs[i]->Update() == true)
+            {
+                status_to_return = true;
             }
         }
 
         for (int i = 0; i < num_pokemon; i++)
         {
-            if (pokemon_ptrs[i]->Update() == true)
+            if (pokemon_ptrs[i]->Update() == true && pokemon_ptrs[i]->GetState() == EXHAUSTED)
             {
                 pokemon_exhausted_counter += 1;
             }
@@ -145,21 +157,29 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
         if (gyms_beaten_counter == num_gyms)
         {
             cout << "GAME OVER: You win! All Pokemon Gyms Beaten!" << endl;
+            exit;
         }
         else if (pokemon_exhausted_counter == num_pokemon)
         {
             cout << "GAME OVER: You lose! All of your Pokemon are tired!" << endl;
+            exit;
         }
 
         return status_to_return;
    }
 
-/*
+
    void Model::Display(View& view)
    {
-
+       cout << "time: " << time << endl;
+       view.Clear();
+       for (int i=0; i<num_objects; i++)
+       {
+           view.Plot(object_ptrs[i]);
+       }
+       view.Draw();
    }
-*/
+
 
    void Model::ShowStatus()
    {

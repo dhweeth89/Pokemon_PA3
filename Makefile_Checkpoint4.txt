@@ -1,0 +1,41 @@
+GCC = g++
+
+
+Checkpoint4: TestCheckpoint4.o GameObject.o Point2D.o Vector2D.o Building.o PokemonCenter.o PokemonGym.o Pokemon.o Model.o GameCommand.o View.o
+	$(GCC) TestCheckpoint4.o GameObject.o Point2D.o Vector2D.o Building.o PokemonCenter.o PokemonGym.o Pokemon.o Model.o GameCommand.o View.o -o Checkpoint4
+
+TestCheckpoint4.o: TestCheckpoint4.cpp
+	$(GCC) -c TestCheckpoint4.cpp -o TestCheckpoint4.o
+
+GameObject.o: GameObject.cpp
+	$(GCC) -c GameObject.cpp -o GameObject.o
+
+Point2D.o: Point2D.cpp
+	$(GCC) -c Point2D.cpp -o Point2D.o
+
+Vector2D.o: Vector2D.cpp
+	$(GCC) -c Vector2D.cpp -o Vector2D.o
+
+Building.o: Building.cpp
+	$(GCC) -c Building.cpp -o Building.o
+
+PokemonCenter.o: PokemonCenter.cpp
+	$(GCC) -c PokemonCenter.cpp -o PokemonCenter.o
+
+PokemonGym.o: PokemonGym.cpp
+	$(GCC) -c PokemonGym.cpp -o PokemonGym.o
+
+Pokemon.o: Pokemon.cpp
+	$(GCC) -c Pokemon.cpp -o Pokemon.o
+
+Model.o: Model.cpp
+	$(GCC) -c Model.cpp -o Model.o
+
+GameCommand.o: GameCommand.cpp
+	$(GCC) -c GameCommand.cpp -o GameCommand.o
+
+View.o: View.cpp
+	$(GCC) -c View.cpp View.o
+
+clean:
+	rm TestCheckpoint4.o GameObject.o Point2D.o Vector2D.o Building.o PokemonCenter.o PokemonGym.o Pokemon.o Model.o GameCommand.o View.o Checkpoint4

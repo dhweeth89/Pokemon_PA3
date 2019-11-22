@@ -16,7 +16,7 @@ srand(time(NULL));
 
 //Testing PokemonCenter class
 
-    PokemonCenter Center1 = PokemonCenter(1, Point2D(0, 0.3));
+    PokemonCenter Center1 = PokemonCenter(1, 5, 15, Point2D(0, 0.3));
 
     //Test PokemonCenter visibility
     cout << "Is Center 1 visible? " << Center1.ShouldBeVisible() << endl;

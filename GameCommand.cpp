@@ -7,6 +7,7 @@
 #include "Model.h"
 #include "Building.h"
 #include "GameCommand.h"
+#include "View.h"
 
 #include <iostream>
 #include "string.h"
@@ -26,7 +27,7 @@ using namespace std;
 
 */
 
-void GameCommand::DoMoveCommand(Model& model, int pokemon_id, Point2D p1)
+void DoMoveCommand(Model& model, int pokemon_id, Point2D p1)
 {
     if (pokemon_id <= 0 || pokemon_id > model.GetNumPokemon())
     {
@@ -42,7 +43,7 @@ void GameCommand::DoMoveCommand(Model& model, int pokemon_id, Point2D p1)
     
 }
 
-void GameCommand::DoMoveToCenterCommand(Model& model, int pokemon_id, int center_id)
+void DoMoveToCenterCommand(Model& model, int pokemon_id, int center_id)
 {
     if ( (pokemon_id <= 0 || pokemon_id > model.GetNumPokemon()) || (center_id <= 0 || pokemon_id > model.GetNumCenters() ) )
     {
@@ -59,7 +60,7 @@ void GameCommand::DoMoveToCenterCommand(Model& model, int pokemon_id, int center
 
 }
 
-void GameCommand::DoMoveToGymCommand(Model& model, int pokemon_id, int gym_id)
+void DoMoveToGymCommand(Model& model, int pokemon_id, int gym_id)
 {
     if ( (pokemon_id <= 0 || pokemon_id > model.GetNumPokemon()) || (gym_id <= 0 || gym_id > model.GetNumGyms() ) )
     {
@@ -77,7 +78,7 @@ void GameCommand::DoMoveToGymCommand(Model& model, int pokemon_id, int gym_id)
 }
 
 
-void GameCommand::DoStopCommand(Model& model, int pokemon_id)
+void DoStopCommand(Model& model, int pokemon_id)
 {
     if ( pokemon_id <= 0 || pokemon_id > model.GetNumPokemon() )
     {
@@ -92,7 +93,7 @@ void GameCommand::DoStopCommand(Model& model, int pokemon_id)
     
 }
 
-void GameCommand::DoTrainInGymCommand(Model& model, int pokemon_id, unsigned int training_units)
+void DoTrainInGymCommand(Model& model, int pokemon_id, unsigned int training_units)
 {
     if ( pokemon_id <= 0 || pokemon_id > model.GetNumPokemon() )
     {
@@ -108,7 +109,7 @@ void GameCommand::DoTrainInGymCommand(Model& model, int pokemon_id, unsigned int
 }
 
 
-void GameCommand::DoRecoverInCenterCommand(Model& model, int pokemon_id, unsigned int stamina_points)
+void DoRecoverInCenterCommand(Model& model, int pokemon_id, unsigned int stamina_points)
 {
     if ( pokemon_id <= 0 || pokemon_id > model.GetNumPokemon() )
     {
@@ -122,9 +123,8 @@ void GameCommand::DoRecoverInCenterCommand(Model& model, int pokemon_id, unsigne
     }
 }
 
-/*
 
-void GameCommand::DoGoCommand(Model& model, View& view)
+void DoGoCommand(Model& model, View& view)
 {
     cout << "Advancing one tick." << endl;
     model.Update();
@@ -132,7 +132,7 @@ void GameCommand::DoGoCommand(Model& model, View& view)
 }
 
 
-void GameCommand::DoRunCommand(Model& model, View& view)
+void DoRunCommand(Model& model, View& view)
 {
     cout << "Advancing to next event." << endl;
     int i = 0;
@@ -144,7 +144,7 @@ void GameCommand::DoRunCommand(Model& model, View& view)
         view.Draw();
         i++;
     }
-}
 
-*/
+    //If the thing updates, it stops running.  If i reaches 5, you stop.  Only one of these conditions has to be met to exit loop
+}
 
