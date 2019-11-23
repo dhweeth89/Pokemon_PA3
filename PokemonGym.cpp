@@ -122,6 +122,8 @@ void PokemonGym::ShowStatus()
     else
     {
         cout << num_training_units_remaining << " training units are remaining for this gym" << endl;
-    }    
+    }
+
+    cout << endl;    
 }
 

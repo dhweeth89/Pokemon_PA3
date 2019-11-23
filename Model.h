@@ -19,7 +19,7 @@ class Model
 
     private:
 
-    int time;
+    double time;
     GameObject* object_ptrs[10];
     int num_objects;
     Pokemon* pokemon_ptrs[10];

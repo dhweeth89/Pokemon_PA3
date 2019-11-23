@@ -17,27 +17,49 @@
 
 int main()
 {
+    srand(time(NULL));
+    
     Model model = Model();
     View view = View();
 
-    view.Clear();
-    view.Draw();
+    //view.Clear();
+    //view.Draw();
 
-    for (int i=0; i<model.GetNumPokemon(); i++)
-    {
-        view.Plot(model.GetPokemonPtr(i));
-    }
+    model.Display(view);
 
-    for (int i=0; i<model.GetNumGyms(); i++)
-    {
-        view.Plot(model.GetPokemonGymPtr(i));
-    }
+    DoMoveCommand(model, 3, Point2D(7,13));
+    DoMoveCommand(model, 1, Point2D(7, 1));
+    DoMoveCommand(model, 2, Point2D(13,3));
 
-    for (int i=0; i<model.GetNumCenters(); i++)
-    {
-        view.Plot(model.GetPokemonGymPtr(i));
-    }
+    //DoGoCommand(model, view);
+    DoRunCommand(model, view);
+    //model.ShowStatus();
+
+    DoTrainInGymCommand(model, 1, 2);
+    DoMoveToGymCommand(model, 2, 2);
+
+    DoRunCommand(model, view);
+    DoRunCommand(model, view);
+
+    DoTrainInGymCommand(model, 2, 1);
+
+    DoRunCommand(model, view);
+
+    DoMoveToCenterCommand(model, 2, 1);
+
+    DoRunCommand(model, view);
+    DoRunCommand(model, view);
 
 
+ /*   DoMoveCommand(model, 1, Point2D(18,24));
+    DoMoveCommand(model, 1, Point2D(18,24));
+    DoMoveCommand(model, 1, Point2D(18,24));
+    DoMoveCommand(model, 1, Point2D(18,24));
+    DoMoveCommand(model, 1, Point2D(18,24));
+    DoMoveCommand(model, 1, Point2D(18,24));
+    DoMoveCommand(model, 1, Point2D(18,24));
+
+    DoRunCommand(model, view);
+*/
 }
 

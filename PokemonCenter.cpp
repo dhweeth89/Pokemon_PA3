@@ -108,5 +108,6 @@ void PokemonCenter::ShowStatus()
     {
         cout << num_stamina_points_remaining << " stamina points remaining" << endl;
     }
-    
+
+    cout << endl;   
 }

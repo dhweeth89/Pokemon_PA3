@@ -9,7 +9,6 @@
 #include "Pokemon.h"
 #include "Model.h"
 #include "Building.h"
-#include "GameCommand.h"
 
 #include <iostream>
 #include "string.h"

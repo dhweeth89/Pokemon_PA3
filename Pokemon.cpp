@@ -115,10 +115,6 @@ void Pokemon::StartMoving(Point2D dest)
     else
     {
         cout << this->display_code << this->id_num << ": On my way." << endl;
-        stamina -= 1;
-        this->location.x += delta.x;
-        this->location.y += delta.y;
-        pokemon_dollars += GetRandomAmountOfPokemonDollars();
         state = MOVING;
     }
 }
@@ -154,10 +150,6 @@ void Pokemon::StartMovingToCenter(PokemonCenter* center)
     else
     {
         cout << this->display_code << this->id_num << ": On my way to the Pokemon Center... " << endl;
-        stamina -= 1;
-        this->location.x += delta.x;
-        this->location.y += delta.y;
-        pokemon_dollars += GetRandomAmountOfPokemonDollars();
         state = MOVING_TO_CENTER;
     }
 }
@@ -193,14 +185,6 @@ void Pokemon::StartMovingToGym(PokemonGym* gym)
     else
     {
         cout << this->display_code << this->id_num << ": On my way to gym " << gym->GetId() << endl;
-        
-        cout << "Destination x: " << destination.x << endl;
-        cout << "Destination y: " << destination.y << endl;
-
-        stamina -= 1;
-        this->location.x += delta.x;
-        this->location.y += delta.y;
-        pokemon_dollars += GetRandomAmountOfPokemonDollars();
         state = MOVING_TO_GYM;
     }
 }
@@ -310,9 +294,9 @@ bool Pokemon::ShouldBeVisible()
 
 void Pokemon::ShowStatus()
 {
-   cout << name << " status: " << endl;;
-   GameObject::ShowStatus();
    cout << endl;
+   cout << name << " status: ";
+   GameObject::ShowStatus();
 
    switch (state)
    {
@@ -364,17 +348,26 @@ void Pokemon::ShowStatus()
        {
            cout << " recovering stamina in Pokemon Center " << current_center->GetId() << endl;
            break;
-       }    
+       }
+
+        case EXHAUSTED:
+        {
+            cout << this->name << " exhausted " << endl;
+        }   
+    
    }
 
    cout << "Stamina: " << stamina << endl;
    cout << "Pokemon Dollars: " << pokemon_dollars << endl;
    cout << "Experience Points: " << experience_points << endl;
+   cout << endl;
 
 }
 
 bool Pokemon::Update()
 {
+    
+
     switch (state)
     {
         case STOPPED:
@@ -555,6 +548,7 @@ bool Pokemon::Update()
            state = IN_CENTER;
            return true;
         }
+
     }
 }
 
@@ -573,6 +567,10 @@ bool Pokemon::UpdateLocation()
     else
     {
         cout << this->display_code << this->id_num << ": step..." << endl;
+        this->location.x += delta.x;
+        this->location.y += delta.y;
+        stamina -= 1;
+        pokemon_dollars += GetRandomAmountOfPokemonDollars();
         return false;
     }
 }

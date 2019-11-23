@@ -128,7 +128,7 @@ void DoGoCommand(Model& model, View& view)
 {
     cout << "Advancing one tick." << endl;
     model.Update();
-    view.Draw();
+    model.Display(view);
 }
 
 
@@ -141,7 +141,7 @@ void DoRunCommand(Model& model, View& view)
     while (i<5 && !(updateTruth))
     {
         updateTruth = model.Update();
-        view.Draw();
+        model.Display(view);
         i++;
     }
 

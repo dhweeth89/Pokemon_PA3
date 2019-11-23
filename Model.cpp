@@ -43,7 +43,7 @@ using namespace std;
 
    Model::Model()
    {
-       time = 0;
+       this->time = 0;
        
        //Pokemon::Pokemon(string in_name, int in_id, char in_code, unsigned int in_speed, Point2D in_loc)
        
@@ -117,7 +117,7 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
        int gyms_beaten_counter = 0;
        int pokemon_exhausted_counter = 0;
        
-       time += 1;       
+       this->time += 1;       
 /*
        for (int i = 0; i < num_objects; i++)
        {
@@ -131,8 +131,12 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
         {
             if (gym_ptrs[i]->Update() == true)
             {
-                gyms_beaten_counter += 1;
                 status_to_return = true;
+            }
+
+            if (gym_ptrs[i]->GetState() == BEATEN)
+            {
+                gyms_beaten_counter += 1;
             }
         }
 
@@ -146,7 +150,12 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
 
         for (int i = 0; i < num_pokemon; i++)
         {
-            if (pokemon_ptrs[i]->Update() == true && pokemon_ptrs[i]->GetState() == EXHAUSTED)
+            if (pokemon_ptrs[i]->Update() == true)
+            {
+                status_to_return = true;
+            }
+
+            if (pokemon_ptrs[i]->GetState() == EXHAUSTED)
             {
                 pokemon_exhausted_counter += 1;
             }
@@ -171,7 +180,10 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
 
    void Model::Display(View& view)
    {
-       cout << "time: " << time << endl;
+       cout << endl;
+       cout << "time: " << this->time << endl;
+       cout << endl;
+       this->ShowStatus();
        view.Clear();
        for (int i=0; i<num_objects; i++)
        {

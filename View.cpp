@@ -6,7 +6,6 @@
 #include "Pokemon.h"
 #include "Model.h"
 #include "Building.h"
-#include "GameCommand.h"
 #include "View.h"
 
 #include <iostream>
@@ -42,7 +41,7 @@ View::View()
 {
     size = 11;
     scale = 2;
-    origin = Point2D();
+    origin = Point2D(0,0);
 }
 
 bool View::GetSubscripts(int& out_x, int& out_y, Point2D location)
@@ -66,12 +65,12 @@ bool View::GetSubscripts(int& out_x, int& out_y, Point2D location)
 
 void View::Clear()
 {
-    for (int i = 0; i < view_maxsize; i++)
+    for (int i = view_maxsize; i >= 0; i--)
     {
         for (int j = 0; j < view_maxsize; j++)
         {
-            grid[i][j][0] = '.';
-            grid[i][j][1] = ' '; 
+            grid[j][i][0] = '.';
+            grid[j][i][1] = ' '; 
         }
     }
 }
@@ -83,7 +82,10 @@ void View::Plot(GameObject *ptr)
 
     if (GetSubscripts(out_x, out_y, ptr->GetLocation()) == true)
     {
-        ptr->DrawSelf(grid[out_x][out_y]);
+        if (ptr->ShouldBeVisible() == true)
+        {
+            ptr->DrawSelf(grid[out_x][out_y]);
+        }
     }
 }
 
@@ -91,13 +93,13 @@ void View::Draw()
 {
     bool y_index = true;
 
-    for (int i=size; i>0; i++)
+    for (int i=(size-1); i>=0; i--)
     {
-        if (y_index = true)
+        if (y_index == true)
         {
-            cout << (size - 1) * 2;
+            cout << i * 2;
             y_index = false;
-            if (((size-1) * 2) < 10)
+            if ((i * 2) < 10)
             {
                 cout << " ";
             }
@@ -105,13 +107,14 @@ void View::Draw()
         }
         else
         {
-            y_index = false;
+            cout << "  ";
+            y_index = true;
         }
 
         for (int j=0; j<size; j++)
         {
-            cout<<grid[i][j][0];
-            cout<<grid[i][j][1];
+            cout<<grid[j][i][0];
+            cout<<grid[j][i][1];
         }
     cout << endl;
     }
@@ -125,6 +128,11 @@ void View::Draw()
     {
         if (x_index == true)
         {
+            if ( (i*2) >= 10)
+            {
+                x_index_two_digits = true;
+            }
+
             if (x_index_two_digits == true)
             {
                 cout << (i * 2);
@@ -134,11 +142,11 @@ void View::Draw()
             {
                 cout << (i * 2) << " ";
                 x_index = false;
-            }    
+            }
         }
         else 
         {
-            cout << "   ";
+            cout << "  ";
             x_index = true;
         }
     }
