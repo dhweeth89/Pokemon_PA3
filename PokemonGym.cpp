@@ -109,11 +109,12 @@ bool PokemonGym::IsBeaten()
 
 void PokemonGym::ShowStatus()
 {
+    cout << "Pokemon Gym Status: ";
     Building::ShowStatus();
-    cout << "Max number of training units: " << max_number_of_training_units << endl;
-    cout << "Stamina cost per training unit: " << stamina_cost_per_training_unit << endl;
-    cout << "Pokemon dollars per training unit: " << dollar_cost_per_training_unit << endl;
-    cout << "Experience points per training unit: " << experience_points_per_training_unit << endl;
+    cout << "\tMax number of training units: " << max_number_of_training_units << endl;
+    cout << "\tStamina cost per training unit: " << stamina_cost_per_training_unit << endl;
+    cout << "\tPokemon dollars per training unit: " << dollar_cost_per_training_unit << endl;
+    cout << "\tExperience points per training unit: " << experience_points_per_training_unit << endl;
     
     if (num_training_units_remaining == 1)
     {

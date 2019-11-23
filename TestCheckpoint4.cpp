@@ -50,6 +50,10 @@ int main()
     DoRunCommand(model, view);
     DoRunCommand(model, view);
 
+    DoMoveToCenterCommand(model, 1, 1);
+
+    DoRunCommand(model, view);
+    DoRunCommand(model, view);
 
  /*   DoMoveCommand(model, 1, Point2D(18,24));
     DoMoveCommand(model, 1, Point2D(18,24));

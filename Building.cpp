@@ -44,11 +44,11 @@ void Building::ShowStatus()
     
     if (pokemon_count == 1)
     {
-        cout << pokemon_count << " pokemon is in this building" << endl;
+        cout << "\t" << pokemon_count << " pokemon is in this building" << endl;
     }
     else
     {
-        cout << pokemon_count << " pokemon are in this building" << endl;
+        cout << "\t" << pokemon_count << " pokemon are in this building" << endl;
     }
     
 }

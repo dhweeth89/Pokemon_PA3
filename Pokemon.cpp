@@ -302,64 +302,64 @@ void Pokemon::ShowStatus()
    {
        case STOPPED:  
        {
-            cout << name << " stopped" << endl;
+            cout << "\tStopped" << endl;
             break;
        }
 
        case MOVING:
        {
-           cout << " moving at a speed of " << speed << " to destination " << destination << "at each step of " << delta << endl;
+           cout << "\tMoving at a speed of " << speed << " to destination " << destination << "at each step of " << delta << endl;
            break; 
        }
 
        case MOVING_TO_CENTER:
        {
-           cout << " heading to Pokemon Center " << current_center->GetId() << " at a speed of " << speed << " at each step of " << delta << endl;
+           cout << "\tHeading to Pokemon Center " << current_center->GetId() << " at a speed of " << speed << " at each step of " << delta << endl;
            break; 
        }
 
        case MOVING_TO_GYM:
        {
-           cout << " heading to Pokemon Gym " << current_gym->GetId() << " at a speed of " << speed << " at each step of " << delta << endl;
+           cout << "\tHeading to Pokemon Gym " << current_gym->GetId() << " at a speed of " << speed << " at each step of " << delta << endl;
            break; 
        }
 
        case IN_CENTER:
        {
-           cout << " inside Pokemon Center " << current_center->GetId() << endl;
+           cout << "\tInside Pokemon Center " << current_center->GetId() << endl;
            cout << endl;
            break;
        }
 
        case IN_GYM:
        {
-           cout << " inside Pokemon Gym " << current_gym->GetId() << endl;
+           cout << "\tInside Pokemon Gym " << current_gym->GetId() << endl;
            cout << endl;
            break; 
        }
 
        case TRAINING_IN_GYM:
        {
-           cout << " training in Pokemon Gym " << current_gym->GetId() << endl;
+           cout << "\tTraining in Pokemon Gym " << current_gym->GetId() << endl;
            break; 
        }
 
        case RECOVERING_STAMINA:
        {
-           cout << " recovering stamina in Pokemon Center " << current_center->GetId() << endl;
+           cout << "\tRecovering stamina in Pokemon Center " << current_center->GetId() << endl;
            break;
        }
 
         case EXHAUSTED:
         {
-            cout << this->name << " exhausted " << endl;
+            cout << "\tExhausted " << endl;
         }   
     
    }
 
-   cout << "Stamina: " << stamina << endl;
-   cout << "Pokemon Dollars: " << pokemon_dollars << endl;
-   cout << "Experience Points: " << experience_points << endl;
+   cout << "\tStamina: " << stamina << endl;
+   cout << "\tPokemon Dollars: " << pokemon_dollars << endl;
+   cout << "\tExperience Points: " << experience_points << endl;
    cout << endl;
 
 }
@@ -468,6 +468,7 @@ bool Pokemon::Update()
             if (IsExhausted())
             {
                 state = EXHAUSTED;
+                current_center->RemoveOnePokemon();
                 return true;
             }
             else
@@ -481,6 +482,7 @@ bool Pokemon::Update()
             if (IsExhausted())
             {
                 state = EXHAUSTED;
+                current_gym->RemoveOnePokemon();
                 return true;
             }
             else
@@ -547,6 +549,11 @@ bool Pokemon::Update()
 
            state = IN_CENTER;
            return true;
+        }
+
+        default: 
+        {
+            return false;
         }
 
     }

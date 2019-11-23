@@ -140,6 +140,7 @@ void DoRunCommand(Model& model, View& view)
 
     while (i<5 && !(updateTruth))
     {
+        //model.Display(view);
         updateTruth = model.Update();
         model.Display(view);
         i++;
