@@ -18,6 +18,11 @@ using namespace std;
 
 int main()
 {
+    cout << "EC327: Introduction to Software Engineering" << endl;
+    cout << "Fall 2019" << endl;
+    cout << "Programming Assignment 3" << endl;
+    
+    
     cout << "                                  ,'\\ " << endl;
     cout << "   _.----.        ____         ,'  _\\   ___    ___     ____ " << endl;
     cout << "_,-'       `.     |    |  /`.   \\,-'    |   \\  /   |   |    \\  |`. " << endl;
