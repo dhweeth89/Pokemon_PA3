@@ -37,15 +37,15 @@ void DoMoveCommand(Model& model, int pokemon_id, Point2D p1)
     {
         Pokemon* ptrPokemon = model.GetPokemonPtr(pokemon_id);
 
-        ptrPokemon->StartMoving(p1);
         cout << "Moving " << ptrPokemon->getName() << " to " << p1 << endl;
+        ptrPokemon->StartMoving(p1);
     }
     
 }
 
 void DoMoveToCenterCommand(Model& model, int pokemon_id, int center_id)
 {
-    if ( (pokemon_id <= 0 || pokemon_id > model.GetNumPokemon()) || (center_id <= 0 || pokemon_id > model.GetNumCenters() ) )
+    if ( (pokemon_id <= 0 || pokemon_id > model.GetNumPokemon()) || (center_id <= 0 || center_id > model.GetNumCenters() ) )
     {
         cout << "Error: Please enter a valid command!" << endl; 
     }
@@ -54,8 +54,8 @@ void DoMoveToCenterCommand(Model& model, int pokemon_id, int center_id)
         Pokemon* ptrPokemon = model.GetPokemonPtr(pokemon_id);
         PokemonCenter* ptrCenter = model.GetPokemonCenterPtr(center_id);
 
-        ptrPokemon->StartMovingToCenter(ptrCenter);
         cout << "Moving " << ptrPokemon->getName() << " to Center " << center_id << endl;
+        ptrPokemon->StartMovingToCenter(ptrCenter);
     }
 
 }
@@ -71,8 +71,8 @@ void DoMoveToGymCommand(Model& model, int pokemon_id, int gym_id)
         Pokemon* ptrPokemon = model.GetPokemonPtr(pokemon_id);
         PokemonGym* ptrGym = model.GetPokemonGymPtr(gym_id);
 
-        ptrPokemon->StartMovingToGym(ptrGym);
         cout << "Moving " << ptrPokemon->getName() << " to Gym " << gym_id << endl;
+        ptrPokemon->StartMovingToGym(ptrGym);
     }
     
 }
@@ -87,8 +87,9 @@ void DoStopCommand(Model& model, int pokemon_id)
     else
     {
         Pokemon* ptrPokemon = model.GetPokemonPtr(pokemon_id);
-        ptrPokemon->Stop();
+        
         cout << "Stopping " << ptrPokemon->getName() << endl;
+        ptrPokemon->Stop();
     }
     
 }
@@ -102,6 +103,7 @@ void DoTrainInGymCommand(Model& model, int pokemon_id, unsigned int training_uni
     else
     {
         Pokemon* ptrPokemon = model.GetPokemonPtr(pokemon_id);
+        
         cout << "Training " << ptrPokemon->getName() << endl;
         ptrPokemon->StartTraining(training_units);
     }
@@ -118,6 +120,7 @@ void DoRecoverInCenterCommand(Model& model, int pokemon_id, unsigned int stamina
     else
     {
         Pokemon* ptrPokemon = model.GetPokemonPtr(pokemon_id);
+        
         cout << "Recovering " << ptrPokemon->getName() << "'s stamina" << endl;
         ptrPokemon->StartRecoveringStamina(stamina_points);
     }

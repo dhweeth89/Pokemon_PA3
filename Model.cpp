@@ -166,12 +166,12 @@ unsigned int exp_points_per_unit, int in_id, Point2D in_loc) : Building('G', in_
         if (gyms_beaten_counter == num_gyms)
         {
             cout << "GAME OVER: You win! All Pokemon Gyms Beaten!" << endl;
-            exit;
+            exit(EXIT_SUCCESS);
         }
         else if (pokemon_exhausted_counter == num_pokemon)
         {
             cout << "GAME OVER: You lose! All of your Pokemon are tired!" << endl;
-            exit;
+            exit(EXIT_FAILURE);
         }
 
         return status_to_return;

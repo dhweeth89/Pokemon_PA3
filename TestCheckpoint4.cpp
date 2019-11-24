@@ -55,6 +55,13 @@ int main()
     DoRunCommand(model, view);
     DoRunCommand(model, view);
 
+    DoTrainInGymCommand(model, 1, 2);
+    DoRecoverInCenterCommand(model, 1, 7);
+
+    DoRunCommand(model, view);
+    
+
+
  /*   DoMoveCommand(model, 1, Point2D(18,24));
     DoMoveCommand(model, 1, Point2D(18,24));
     DoMoveCommand(model, 1, Point2D(18,24));

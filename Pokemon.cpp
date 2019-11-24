@@ -209,8 +209,6 @@ void Pokemon::StartTraining(unsigned int num_training_units)
     }
     else
     {
-        cout << this->display_code << this->id_num << ": Performing training." << endl;
-
         if (num_training_units > current_gym->GetNumTrainingUnitsRemaining())
         {
             training_units_to_buy = current_gym->GetNumTrainingUnitsRemaining();
@@ -219,6 +217,8 @@ void Pokemon::StartTraining(unsigned int num_training_units)
         {
             training_units_to_buy = num_training_units;
         }
+
+        cout << this->display_code << this->id_num << ": Started to train at Pokemon Gym " << current_gym->GetId() <<  " with " << training_units_to_buy << " training units" << endl;
 
         state = TRAINING_IN_GYM;    
     }
@@ -245,8 +245,6 @@ void Pokemon::StartRecoveringStamina(unsigned int num_stamina_points)
     }
     else
     {
-        cout << this->display_code << this->id_num << ": Performing training." << endl;
-        
         if (num_stamina_points > current_center->GetNumStaminaPointsRemaining())
         {
             stamina_points_to_buy = current_center->GetNumStaminaPointsRemaining();
@@ -255,6 +253,9 @@ void Pokemon::StartRecoveringStamina(unsigned int num_stamina_points)
         {
             stamina_points_to_buy = num_stamina_points;
         }
+
+        cout << this->display_code << this->id_num << ": Started recovering " << stamina_points_to_buy << " stamina points at Pokemon Center " << current_center->GetId() << endl;
+        
 
         state = RECOVERING_STAMINA;    
     }
@@ -569,6 +570,8 @@ bool Pokemon::UpdateLocation()
     else if (fabs(this->location.x - this->destination.x) <= fabs(this->delta.x) && fabs(this->location.y - this->destination.y) <= fabs(this->delta.y))
     {
         cout << this->display_code << this->id_num << ": I'm there!" << endl;
+        this->location.x = this->destination.x;
+        this->location.y = this->destination.y;
         return true;
     }
     else
@@ -585,8 +588,18 @@ bool Pokemon::UpdateLocation()
 void Pokemon::SetupDestination(Point2D dest)
 {
     destination = dest;
-    this->delta.x = (destination.x - location.x) * (speed / GetDistanceBetween(this->destination, this->location));
-    this->delta.y = (destination.y - location.y) * (speed / GetDistanceBetween(this->destination, this->location));
+
+    if (GetDistanceBetween(this->destination, this->location) != 0)
+    {
+        this->delta.x = (destination.x - location.x) * (speed / GetDistanceBetween(this->destination, this->location));
+        this->delta.y = (destination.y - location.y) * (speed / GetDistanceBetween(this->destination, this->location));
+    }
+    else
+    {
+        delta.x = 0;
+        delta.y = 0;
+    }
+    
 }
 
 string Pokemon::getName()

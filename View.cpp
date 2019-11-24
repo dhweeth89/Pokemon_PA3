@@ -47,7 +47,6 @@ View::View()
 bool View::GetSubscripts(int& out_x, int& out_y, Point2D location)
 {
     
-    
     out_x = (int) ((location.x - origin.x) / scale);
     out_y = (int) ((location.y - origin.y) / scale);
 
